@@ -19,19 +19,6 @@ export default function Mainapp() {
     setTodos(newArray);
   };
 
-  //We map through todos, find the item
-  //where its index is same with editing todo id
-  //we return input value for this case
-  const handleSave = () => {
-    const newArray = todos.map((el, index) => {
-      if (index) {
-        return inputValue;
-      }
-      return el;
-    });
-    setTodos(newArray);
-    setInputValue("");
-  };
   return (
     <div className="wrapper">
       <p className="wrapper-heading">What is the plan for today ?</p>
