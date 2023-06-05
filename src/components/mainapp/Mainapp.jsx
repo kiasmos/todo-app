@@ -2,21 +2,22 @@ import { useState } from "react";
 import TodoItem from "../TodoItem/TodoItem";
 
 export default function Mainapp() {
+  //todo asagida olan listdir
   const [todos, setTodos] = useState([]);
+  //inputa daxil edilecek melumati saxlayir
   const [inputValue, setInputValue] = useState("");
 
-  //We update state and
-  //clear input value
+  //add todonu click etdiyimde ise dusur
   const handleClick = () => {
     setTodos((prev) => [...prev, inputValue]);
     setInputValue("");
   };
 
-  //We filter the state and save it to array
-  //Filtering: Not including the item with clicked item's index
+  //id = ne silinecekse onu temsil edir
   const handleDelete = (id) => {
     const newArray = todos.filter((el, index) => index != id);
     setTodos(newArray);
+    console.log(newArray);
   };
 
   return (
@@ -33,6 +34,7 @@ export default function Mainapp() {
         <button
           className="addtodo-button"
           onClick={handleClick}
+          //input bos olanda islemir
           disabled={inputValue.trim("") === ""}
         >
           Add Todo
